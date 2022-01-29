@@ -1,0 +1,126 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cabin&family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+
+<ion-toolbar class="topBar" >
+
+  <ion-button  routerLink="/extraviado" routerDirection="backward"  fill="clear" mode="ios"> 
+    <ion-icon color="danger" name="close" >
+   
+    </ion-icon>
+  </ion-button>
+ 
+</ion-toolbar>
+
+<ion-content scroll-y="false" class="mainContent">
+
+  <form class="formContent"[formGroup]="animalForm" (ngSubmit)="CreateRecord()"> 
+
+    <!------------------------------------------------------> 
+  
+   <h2 class="ion-text-center">Informacion de tu mascota</h2> 
+  
+ <!--   <ion-card color="light" class="ion-text-center" *ngFor="let item of files | async">
+  
+      <ion-card-content>
+        <img [src]="item.filePath" />
+      </ion-card-content>
+    </ion-card>
+  -->  
+    <!------------------------------------------------------> 
+
+    <div  class="content">
+
+      <ion-segment class="options1" mode="ios" formControlName="Type" color="dark" value="En Adopcion">
+        <ion-segment-button value="En Adopcion">
+          <ion-label>En Adopcion</ion-label>
+        </ion-segment-button>
+        <ion-segment-button value="Extraviado">
+          <ion-label>Extraviado</ion-label>
+        </ion-segment-button>
+      </ion-segment>
+
+  <ion-card class="card2" >
+       
+      <ion-input autofocus="true" formControlName="Name" mode="ios" placeholder="Nombre de la mascota" ></ion-input>
+
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col size=6>
+  
+        <ion-card class="card2Option" >
+          <ion-label>Edad </ion-label>
+          <ion-input inputmode="decimal" placeholder="Introduce la edad" formControlName="Age" mode="md"></ion-input>
+     
+      </ion-card>
+
+</ion-col>
+<ion-col size="6">
+  <ion-label class="optionTitle2"> ¿Años o meses?</ion-label>
+  <ion-card class="cardSelect" >
+    
+      
+      <ion-select interface="popover" mode="ios" formControlName="typeAge" value="Años">
+        <ion-select-option value="Años">Años</ion-select-option>
+        <ion-select-option value="Meses">Meses</ion-select-option>
+      </ion-select>
+    
+  </ion-card>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size=6>
+  
+        <ion-label class="optionTitle">¿Que categoria describe mejor a tu adoptappble?</ion-label>
+</ion-col>
+<ion-col size="6">
+
+  <ion-card class="cardSelect" >
+    
+      
+      <ion-select interface="popover" mode="ios" formControlName="Category" value="Perros">
+        <ion-select-option value="Perros">Perros</ion-select-option>
+        <ion-select-option value="Gatos">Gatos</ion-select-option>
+        <ion-select-option value="Hamsters">Hamsters</ion-select-option>
+        <ion-select-option value="Conejos">Conejos</ion-select-option>
+      </ion-select>
+    
+  </ion-card>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+  
+
+
+  <ion-card class="card2" >
+     
+      <ion-input formControlName="Breed" mode="ios" placeholder="Raza"></ion-input>
+  
+  </ion-card>
+
+  <ion-card class="card2" >
+  
+      <ion-input formControlName="Place" mode="ios" placeholder="Lugar de perdida"></ion-input>
+  
+  </ion-card>
+
+  <ion-card class="card3" >
+    <ion-card-content>      
+      
+        <ion-textarea formControlName="Info" mode="ios" placeholder="Descripcion general de la mascota y de su situacion"></ion-textarea>
+    
+    </ion-card-content>
+  </ion-card>
+
+</div>
+</form> 
+
+</ion-content>
+
+<ion-footer class="footerBar">
+<ion-button  class="buttont" (click)="CreateRecord()" [disabled]="animalForm.invalid" mode="ios" color="dark" >Publicar</ion-button>
+</ion-footer>

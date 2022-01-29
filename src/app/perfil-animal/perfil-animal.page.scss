@@ -1,0 +1,174 @@
+ion-segment {
+  margin: 0 10px;
+}
+
+ion-segment-button {
+  text-transform: capitalize;
+  transform: scale(.8,.8);
+  --indicator-color: transparent;
+  color: #969696;
+
+  ion-label {
+    position: relative;
+    left: -17px;
+    font-weight: bolder;
+  }
+}
+
+.segment-button-checked {
+  color: #333;
+}
+
+.segment-button-checked:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  border-bottom: 4px solid #333;
+
+}
+
+ion-badge {
+  padding: 8px 0;
+  border-radius: 18px;
+  color: #8c8c8c;
+  border: 1px solid #8c8c8c;
+  width: 100%;
+  text-align: center;
+}
+
+.poster-col {
+  height: 400px;
+  
+  img {
+    border-radius: 40px;
+  width: 80%;
+  }
+  
+}
+
+.rate {
+  font-size: 14px;
+  padding-top: 4px;
+
+  ion-icon {
+    color: gold;
+  }
+}
+
+h5 {
+  margin-top: 4px;
+}
+
+
+
+.swiper-slide-prev {
+  opacity: .5;
+  transform: rotate(-8deg);
+}
+
+.swiper-slide-next {
+  opacity: .5;
+  transform: rotate(8deg);
+}
+
+.swiper-slide {
+  transition: .4s all;
+}
+
+ion-card-content {
+  .img-wrapper {
+    border-radius: 15px;
+    height: 200px;
+    overflow: hidden;
+    margin-bottom: 0px;
+  }
+
+  ion-icon {
+    color: #f2994a;
+    padding-right: 4px;
+  }
+
+  ion-card-subtitle:last-of-type {
+    padding-top:6px;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+
+}
+
+.card {
+  margin: 0;
+  margin-right: 20px;
+  width: 100%;
+  box-shadow: none;
+  border-radius: 14px;
+}
+.swiper-slide {
+  transition: .4s all;
+}
+
+ion-card-content {
+  .img-wrapper {
+    border-radius: 15px;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 0px;
+  }
+
+  ion-icon {
+    color: #f2994a;
+    padding-right: 4px;
+  }
+
+  ion-card-subtitle:last-of-type {
+    padding-top:6px;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+
+}
+
+.card {
+  margin: 0;
+  margin-right: 20px;
+  width: 100%;
+  box-shadow: none;
+  border-radius: 14px;
+    transition: .4s all;
+}
+
+ion-card-content {
+  .img-wrapper {
+    border-radius: 15px;
+    height: 300px;
+    overflow: hidden;
+    margin-bottom: 0px;
+  }
+
+  ion-icon {
+    color: #f2994a;
+    padding-right: 4px;
+  }
+
+  ion-card-subtitle:last-of-type {
+    padding-top:6px;
+    font-family: 'Josefin Sans', sans-serif;
+  }
+
+}
+
+.card {
+  margin: 0;
+  margin-right: auto;
+  width: 100%;
+  box-shadow: none;
+  border-radius: 14px;
+}
+
+.cardd{
+  border-radius: 15px;
+}
+
+.custom-font {
+  font-family: 'Josefin Sans', sans-serif;
+}

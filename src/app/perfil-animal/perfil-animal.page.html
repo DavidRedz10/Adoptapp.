@@ -1,0 +1,104 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+
+
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+
+    <ion-buttons routerLink="/tabs/tab1" routerDirection="root" slot="start">
+      <ion-button>
+        <ion-icon name="chevron-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="flag-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content scroll-y="false" [fullscreen]="true">
+  
+
+
+  <div class="ion-padding">
+
+    <ion-grid>
+      <ion-row>
+        <ion-col >
+          <ion-badge color="light">{{animales.Breed}}</ion-badge>
+        </ion-col>
+        <ion-col >
+          <ion-badge color="light">{{animales.Age}} {{animales.typeAge}}</ion-badge>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+  <ion-slides [options]="options">
+    
+    <ion-slide>
+      
+      <ion-card class="card">
+        <ion-card-content class="ion-text-left">
+          <div class="img-wrapper">
+            <ion-img [src]="animales.Image"></ion-img>
+          </div>
+        </ion-card-content>
+      </ion-card>
+      
+    </ion-slide>
+    
+    <ion-slide>
+      
+      <ion-card class="card">
+        <ion-card-content class="ion-text-left">
+          <div class="img-wrapper">
+            <ion-img [src]="animales.Image2"></ion-img>
+          </div>
+        </ion-card-content>
+      </ion-card>
+      
+      
+    </ion-slide>
+    
+    <ion-slide>
+      
+      <ion-card class="card">
+        <ion-card-content class="ion-text-left">
+
+          <div class="img-wrapper">
+            <ion-img [src]="animales.Image3"></ion-img>
+          </div>
+        </ion-card-content>
+      </ion-card>
+      
+    </ion-slide>
+   
+  </ion-slides>
+
+      <ion-card class="ion-text-start cardd" >
+        <ion-card-header>
+          <ion-card-title class=" ion-text-left custom-font">{{animales.Name}}</ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content class="custom-font">
+         {{animales.Info}}
+        </ion-card-content>
+
+        <footer>
+          <ion-button expand="full" class="ion-no-margin custom-font" >
+            Adoptar
+            </ion-button>
+        </footer>
+      </ion-card>
+ 
+  
+</ion-content>
+
+  

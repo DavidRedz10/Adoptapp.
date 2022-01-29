@@ -1,0 +1,344 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+
+
+
+<ion-content  fullscreen scrollEvents="true" appHideHeader [header]="header">
+
+
+  <ion-item lines="none" class="new-background-color" >
+    <ion-avatar slot="end">
+      <img src="https://www.famousbirthdays.com/faces/auronplay-image.jpg">
+    </ion-avatar>
+
+    <ion-label>
+      <h2 class="custom-font">Bienvenido, Anaximandro</h2>   
+      <p class="custom-font">Usaquen</p>
+    </ion-label>
+  </ion-item>
+
+<div class="ion-padding wrapper">
+
+  <ion-searchbar [(ngModel)]="searchTerm" (ionInput)="filterList($event)" mode="ios" ></ion-searchbar>
+
+  <!---------------------------------------Contenido Desplegable Barra de Busqueda----------------------------------------------------->
+  <ion-item button ="true" (click)="perfilPage(animalItem)" [hidden]="!searchTerm" *ngFor="let animalItem of animalList">
+   <ion-grid>
+     <ion-row>
+       <ion-col size="4">
+       <img class="animalImage"  [src]="animalItem.Image" >
+     </ion-col>
+     <ion-col size="8">
+       <ion-label>
+         <ion-text class="animalNameSearch">
+           {{ animalItem.Name }}
+         </ion-text>
+         <ion-text>
+         <p>{{ animalItem.Age}} {{animalItem.typeAge}}/ Raza: {{ animalItem.Breed }}</p>
+       </ion-text>
+       <ion-text>
+         <p> {{ animalItem.Category }}</p>
+       </ion-text>
+       </ion-label>
+     </ion-col>
+     </ion-row>
+     </ion-grid>
+     </ion-item>
+    <!--------------------------------------------------------------------------------------------------->
+
+  <ion-grid class="ion-no-padding">
+    <ion-row class="ion-align-items-baseline">
+      <ion-col size="6">
+        <h4 class="title">
+          Adoptappbles
+        </h4>
+      </ion-col>
+      <ion-col size="6">
+        <h4 class="more ion-text-end">
+          Mostrar mas
+        </h4>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  </div>
+
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col size="12">
+        <ion-slides [options]="options">
+
+<!--------------------------------------------------------------------------------------------------->
+          
+<ion-slide *ngFor="let animales of adoptadosList ">
+            <ion-card (click)="perfilPage(animales)" button="true" class="card">
+              <ion-card-content class="ion-text-left">
+
+                <div class="img-wrapper">
+                  <ion-img [src]="animales.Image"></ion-img>
+                </div>
+                
+                <ion-card-title class="title">{{animales.Name}}</ion-card-title>
+                <ion-card-subtitle>{{animales.Breed}}</ion-card-subtitle>
+                <ion-card-subtitle color="success">
+                  {{animales.Age}} {{animales.typeAge}}
+                </ion-card-subtitle>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+
+  <!--------------------------------------------------------------------------------------------------->
+          
+          <ion-slide>
+            <ion-card class="card">
+              <ion-card-content class="ion-text-left">
+
+                <div class="img-wrapper">
+                  <ion-img src="./assets/img/martin.jpg"></ion-img>
+                </div>
+                
+                <ion-card-title class="title">Aldo</ion-card-title>
+                <ion-card-subtitle>Golden Retriever</ion-card-subtitle>
+                <ion-card-subtitle color="success">
+                   7 años
+                </ion-card-subtitle>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class="card">
+              <ion-card-content class="ion-text-left">
+
+                <div class="img-wrapper">
+                  <ion-img src="./assets/img/nobiko.jpg"></ion-img>
+                </div>
+                
+                <ion-card-title class="title">Pandora</ion-card-title>
+                <ion-card-subtitle>Gata Maine Coon</ion-card-subtitle>
+                <ion-card-subtitle color="success">
+                  2 meses
+                </ion-card-subtitle>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+
+          <ion-slide>
+            <ion-card class="card">
+              <ion-card-content class="ion-text-left">
+
+                <div class="img-wrapper">
+                  <ion-img src="https://estaticos.muyinteresante.es/media/cache/1140x_thumb/uploads/images/gallery/59a697445bafe8f6f6b3d6dc/hamster-sirio_0.jpg"></ion-img>
+                </div>
+                
+                <ion-card-title class="title">Señor Salchicha</ion-card-title>
+                <ion-card-subtitle>Hamster</ion-card-subtitle>
+                <ion-card-subtitle color="success">
+                  1 mes                
+                </ion-card-subtitle>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+
+
+          <ion-slide>
+            <ion-card class="card">
+              <ion-card-content class="ion-text-left">
+
+                <div class="img-wrapper">
+                  <ion-img src="https://cumbrepuebloscop20.org/wp-content/uploads/2018/10/parrots-3427188_640-1.jpg.webp"></ion-img>
+                </div>
+                
+                <ion-card-title class="title">Paco Y  Paquita</ion-card-title>
+                <ion-card-subtitle>Loros</ion-card-subtitle>
+                <ion-card-subtitle color="success">
+                  10 años     
+                </ion-card-subtitle>
+              </ion-card-content>
+            </ion-card>
+          </ion-slide>
+        </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
+  <div class="ion-padding-horizontal wrapper">
+  
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-align-items-baseline">
+        <ion-col size="6">
+          <h4 class="title">
+            Explora categorias
+          </h4>
+        </ion-col>
+        <ion-col size="6">
+          <h4 class="more ion-text-end">
+            Mostrar mas
+          </h4>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  
+    </div>
+  
+    <ion-grid class="ion-no-padding">
+      <ion-row>
+        <ion-col size="12">
+          <ion-slides [options]="categories">
+
+   <!-----------------------------------------CATEGORIAS DESDE FIREBASE---------------------------------->         
+
+            <ion-slide *ngFor="let animales of categoriesList ">
+              <ion-card class="category" [color]="animales.Color" button="true" (click)="categoryPage(animales)">
+                <ion-card-header class="ion-text-center">
+                  <img class="iconSize" [src]="animales.Category_Image"> 
+                  <ion-card-title >{{animales.Category}}</ion-card-title>                 
+                </ion-card-header>
+              </ion-card>
+            </ion-slide>
+  
+  <!--------------------------------------------------------------------------------------------------->
+
+            <ion-slide>
+              <ion-card class="category" color="danger" button=true>
+                <ion-card-header class="ion-text-center">
+                  <ion-icon src="./assets/img/catsvg.svg"></ion-icon>
+                  <ion-card-title>Gatos</ion-card-title>
+                 
+                </ion-card-header>
+              </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+              <ion-card class="category" color="secondary" button=true>
+                <ion-card-header class="ion-text-center">
+                  <ion-icon src="./assets/img/perrosvg.svg"></ion-icon>
+                  <ion-card-title>Perros </ion-card-title>
+                 
+                </ion-card-header>
+              </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+              <ion-card class="category" color="warning" button=true>
+                <ion-card-header class="ion-text-center">
+                  <ion-icon src="./assets/img/ratsvg.svg"></ion-icon>
+                  <ion-card-title>Hamsters</ion-card-title>
+                 
+                </ion-card-header>
+              </ion-card>
+            </ion-slide>
+
+            <ion-slide>
+              <ion-card class="category" color="success" button=true>
+                <ion-card-header class="ion-text-center">
+                  <ion-icon src="./assets/img/birdsvg.svg"></ion-icon>
+                  <ion-card-title>Aves</ion-card-title>
+                  
+                </ion-card-header>
+              </ion-card>
+            </ion-slide>
+
+            
+
+            
+  
+          </ion-slides>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+
+    <div class="ion-padding-horizontal wrapper">
+    
+      <ion-grid class="ion-no-padding">
+        <ion-row class="ion-align-items-baseline">
+          <ion-col size="6">
+            <h4 class="title">
+              ¿Los has visto?
+            </h4>
+          </ion-col>
+          <ion-col size="6">
+            <h4 class="more ion-text-end">
+              Mostras mas
+            </h4>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    
+      </div>
+    
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="12">
+
+
+
+            <ion-slides [options]="options">
+
+              <!----------------------------------------------------------------------->
+
+              <ion-slide *ngFor="let animales of perdidosList " >
+                <ion-card (click)="perfilPage(animales)" button="true" class="card">
+                  <ion-card-content class="ion-text-left">
+    
+                    <div class="img-wrapper">
+                      <ion-img [src]="animales.Image"></ion-img>
+                    </div>
+                    
+                    <ion-card-title class="title">{{animales.Name}}</ion-card-title>
+                    <ion-card-subtitle>{{animales.Breed}}</ion-card-subtitle>
+                    <ion-card-subtitle>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-outline"></ion-icon>
+                    </ion-card-subtitle>
+                  </ion-card-content>
+                </ion-card>
+              </ion-slide>
+
+              <!----------------------------------------------------------------------->
+    
+              <ion-slide>
+                <ion-card class="card">
+                  <ion-card-content class="ion-text-left">
+    
+                    <div class="img-wrapper">
+                      <ion-img src="./assets/img/nobiko.jpg"></ion-img>
+                    </div>
+                    
+                    <ion-card-title class="title">Pandora</ion-card-title>
+                    <ion-card-subtitle>Gata mestiza</ion-card-subtitle>
+                    <ion-card-subtitle>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star"></ion-icon>
+                      <ion-icon name="star-half"></ion-icon>
+                    </ion-card-subtitle>
+                  </ion-card-content>
+                </ion-card>
+              </ion-slide>
+    
+           
+            </ion-slides>
+
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    
+      <div class="ion-padding">
+
+            <ion-badge color="light">
+              Adoptaapsoftware@gmail.com
+            </ion-badge>
+
+      </div>
+
+</ion-content>

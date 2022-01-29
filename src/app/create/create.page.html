@@ -1,0 +1,46 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+<ion-header class="ion-no-border">
+	<ion-toolbar>
+    <div class="back-circle"></div>
+		<ion-title class="ion-text-center custom-font">Registro</ion-title>
+	</ion-toolbar>
+</ion-header>
+
+<ion-content padding class="Fondo" fullscreen="true">
+
+<div class="ion-padding">
+
+  <form class="ion-padding" [formGroup]="userForm" (ngSubmit)="signUp()">
+
+    <div class="wrap-input">
+    <input class="input" type="text"  name="user-name" formControlName="User" placeholder="Usuario">
+    </div>
+
+    <div class="wrap-input">
+    <input class="input" type="email" [(ngModel)]="email" name="user-name" formControlName="Email" placeholder="Correo Electronico">
+    </div> 
+
+    <div class="wrap-input">
+    <input class="input" type="password" [(ngModel)]="password" name="password" formControlName="Password" placeholder="Contraseña">
+    </div> 
+
+    <div class="container-form-btn">
+      <button (click)="signUp()" class="form-btn custom-font">
+      Registrarse
+      </button>
+    </div>   
+
+
+  </form>
+
+</div>
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+	<ion-toolbar>
+		<p class="ion-text-center custom-font">¿Ya tienes una cuenta? <a routerLink="/login" routerDirection="root"> Ingresa Aqui </a></p>
+	</ion-toolbar>
+</ion-footer>

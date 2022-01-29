@@ -1,0 +1,135 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cabin&family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+  
+
+<ion-toolbar class="main">
+    <ion-label class="title">
+     Ellos esperan por ti 
+    </ion-label>
+
+<ion-grid>
+  <ion-row>
+    <ion-col col="6">    <!---------------------------------Metodo y variable searchTerm para contenido desplegable/busqueda----------------------------------->
+    <ion-searchbar [(ngModel)]="searchTerm" class="searchBar"  (ionInput)="filterList($event)" mode="ios"></ion-searchbar>
+    </ion-col>
+    <ion-col col="6">
+      <ion-button mode="ios" class="titleSearch" fill="clear"> Ver Todos </ion-button>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+    </ion-toolbar>
+
+
+<ion-content  no-padding>
+
+   <!---------------------------------------Contenido Desplegable Barra de Busqueda----------------------------------------------------->
+  <ion-item button ="true" (click)="perfilPage(animalItem)" [hidden]="!searchTerm" *ngFor="let animalItem of animalList">
+<ion-grid>
+  <ion-row>
+    <ion-col size="4">
+    <img class="animalImage"  [src]="animalItem.Image" >
+  </ion-col>
+  <ion-col size="8">
+    <ion-label>
+      <ion-text class="animalNameSearch">
+        {{ animalItem.Name }}
+      </ion-text>
+      <ion-text>
+      <p>{{ animalItem.Age}} / Raza: {{ animalItem.Breed }}</p>
+    </ion-text>
+    <ion-text>
+      <p> {{ animalItem.Category }}</p>
+    </ion-text>
+    </ion-label>
+  </ion-col>
+  </ion-row>
+  </ion-grid>
+  </ion-item>
+ <!--------------------------------------------------------------------------------------------------->
+
+  <!---------------------------------------Perros----------------------------------------------------->
+    <ion-list class="animalCard3" [hidden]="searchTerm"> 
+    <ion-list *ngFor="let animales of dogList "> <!--Crea El espacio para perros en automatico-->
+         <!-- animales.category Trae desde firebase la categoria Perros para iniciar el item de categoria"-->
+        <ion-button mode="ios" class="titleButton" fill="clear" (click)="categoryPage(animales)" *ngIf="animales.Category == 'Perros'"> {{animales.Category}} </ion-button>
+        <ion-button mode="ios" class="titleButton" fill="clear"  (click)="categoryPage(animales)" *ngIf="animales.Category == 'Gatos'"> {{animales.Category}} </ion-button>
+        <ion-button mode="ios" class="titleButton" fill="clear" (click)="categoryPage(animales)"  *ngIf="animales.Category == 'Hamsters'"> {{animales.Category}} </ion-button>
+      </ion-list>
+ 
+    <ion-grid>
+  <ion-row>
+ <ion-col size="3"  *ngFor="let image of dogList" > <!--Organiza las imagenes de raza en automatico dependiendo las que se encuentren en firebase-->
+      <ion-card button="true" class="animalCard">
+
+      <img class="animalImage"  [src]="image.Category_Image" > <!--Trae desde firebase las imagenes que correspondan a la categoria Perros-->
+
+      <img class="animalImage"  [src]="image.Background" > <!--Fondo boton "VER TODOS LOS..." traido desde firebase-->
+
+      <!--Ion-Labels Colocan texto encima del background anterior para el boton "VER TODOS LOS..."-->
+      <!-- image.category Trae desde firebase la categoria Perros para completar el boton "VER TODOS LOS..."-->
+     
+      <ion-label class="animalName2" *ngIf="image.Category == 'Perros'" > Ver Todos los {{image.Category}}  </ion-label> 
+      <ion-label class="animalName2" *ngIf="image.Category == 'Gatos'" > Ver Todos los {{image.Category}}  </ion-label>
+      <ion-label class="animalName2" *ngIf="image.Category == 'Hamsters'" > Ver Todos los {{image.Category}}  </ion-label>
+      
+    </ion-card>
+    <ion-label class="animalName"> {{image.Breed}} </ion-label>
+    </ion-col>
+  </ion-row>
+  </ion-grid>
+</ion-list>
+
+<!---------------------------------------Gatos----------------------------------------------------->
+
+<ion-list class="animalCard3" [hidden]="searchTerm"> 
+  <ion-list *ngFor="let animales of catList ">
+      <ion-button mode="ios" class="titleButton" fill="clear"  (click)="categoryPage(animales)" *ngIf="animales.Category == 'Perros'"> {{animales.Category}} </ion-button>
+      <ion-button mode="ios" class="titleButton" fill="clear"  (click)="categoryPage(animales)" *ngIf="animales.Category == 'Gatos'"> {{animales.Category}} </ion-button>
+      <ion-button mode="ios" class="titleButton" fill="clear" (click)="categoryPage(animales)"  *ngIf="animales.Category == 'Hamsters'"> {{animales.Category}} </ion-button>
+
+    </ion-list>
+
+  <ion-grid >
+<ion-row>
+<ion-col size="3"  *ngFor="let image of catList" >
+    <ion-card button="true" class="animalCard">
+
+    <img class="animalImage"  [src]="image.Category_Image" >
+    <img class="animalImage"  [src]="image.Background" >
+    <ion-label class="animalName2" *ngIf="image.Category == 'Perros'" > Ver Todos los {{image.Category}}  </ion-label>
+    <ion-label class="animalName2" *ngIf="image.Category == 'Gatos'" > Ver Todos los {{image.Category}}  </ion-label>
+    <ion-label class="animalName2" *ngIf="image.Category == 'Hamsters'" > Ver Todos los {{image.Category}}  </ion-label>
+  </ion-card>
+  <ion-label class="animalName"> {{image.Breed}} </ion-label>
+  </ion-col>
+</ion-row>
+</ion-grid>
+</ion-list>
+
+<!---------------------------------------Hamsters----------------------------------------------------->
+
+<ion-list class="animalCard3" [hidden]="searchTerm" > 
+  <ion-list *ngFor="let animales of hamsterList ">
+      <ion-button mode="ios" class="titleButton" fill="clear" (click)="categoryPage(animales)"  *ngIf="animales.Category == 'Perros'"> {{animales.Category}} </ion-button>
+      <ion-button mode="ios" class="titleButton" fill="clear" (click)="categoryPage(animales)"  *ngIf="animales.Category == 'Gatos'"> {{animales.Category}} </ion-button>
+      <ion-button mode="ios" class="titleButton" fill="clear" (click)="categoryPage(animales)"  *ngIf="animales.Category == 'Hamsters'"> {{animales.Category}} </ion-button>
+    </ion-list>
+
+  <ion-grid >
+<ion-row>
+<ion-col size="3"  *ngFor="let image of hamsterList" >
+    <ion-card button="true" class="animalCard">
+
+    <img class="animalImage"  [src]="image.Category_Image" >
+    <img class="animalImage"  [src]="image.Background" >
+    <ion-label class="animalName2" *ngIf="image.Category == 'Perros'" > Ver Todos los {{image.Category}}  </ion-label>
+    <ion-label class="animalName2" *ngIf="image.Category == 'Gatos'" > Ver Todos los {{image.Category}}  </ion-label>
+    <ion-label class="animalName2" *ngIf="image.Category == 'Hamsters'" > Ver Todos los {{image.Category}}  </ion-label>
+  </ion-card>
+  <ion-label class="animalName"> {{image.Breed}} </ion-label>
+  </ion-col>
+</ion-row>
+</ion-grid>
+</ion-list>
+
+</ion-content>

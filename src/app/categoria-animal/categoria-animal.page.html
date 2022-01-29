@@ -1,0 +1,42 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Cabin&family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+
+<ion-toolbar class="topBar">
+
+  <ion-button routerLink="/tabs/tab2" routerDirection="root" id="button" fill="clear" mode="ios"> 
+    <ion-icon color="danger" name="chevron-back-outline" >
+    </ion-icon>
+  </ion-button>
+
+  <ion-title class="titlePage" >{{animales.Category}}</ion-title>
+ 
+</ion-toolbar>
+
+<ion-content class="mainContent">
+
+  <ion-list inset=false lines="none">
+    
+    <ion-item *ngFor="let a of animalList " button="true" (click)="perfilPage(a)" > 
+      <ion-grid>
+        <ion-row >
+          <ion-col size="4">
+          
+          
+              <img class="animalImage" [src]="a.Image">
+           
+       
+          </ion-col>
+        <ion-col size="8">
+          <ion-text class="animalName"> {{a.Name}}, {{a.Age}} {{a.typeAge}}</ion-text>
+          <ion-row>
+            <ion-text class="animalInfo" > {{a.Info}} </ion-text>
+          </ion-row>
+        </ion-col>
+        
+        </ion-row>
+      </ion-grid>
+    </ion-item>
+    
+    </ion-list>
+
+</ion-content>

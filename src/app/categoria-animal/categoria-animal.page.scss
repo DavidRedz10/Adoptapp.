@@ -1,0 +1,42 @@
+.animalImage{
+    position: relative;      
+    width: 85px !important;
+    height: 85px !important;
+    left: 5px;
+    -webkit-box-shadow: 0px 10px 13px -7px #000000, -1px 1px 50px 10px rgba(0,0,0,0); 
+    box-shadow: 0px 10px 13px -7px #000000, -1px 1px 50px 10px rgba(0,0,0,0);
+    border-radius: 17px;
+  }
+
+  .animalName{
+    font-weight: bold;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  .titlePage{
+    font-size: 24px;
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  .animalInfo{
+      position: relative;
+    font-size: 13px;
+    color: #808080;
+    font-family: 'Cabin', sans-serif;
+  }
+
+  .xd{
+    font-weight: bold;
+  }
+
+  .topBar {
+    text-align: left;
+    position: relative;
+    top: 4%;
+    padding: none !important;
+  }
+
+  .mainContent {
+    top: 5%;
+    position: relative;
+  }

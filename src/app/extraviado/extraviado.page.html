@@ -1,0 +1,163 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cabin&family=Montserrat:wght@100;400&display=swap" rel="stylesheet">
+
+<ion-toolbar class="topBar">
+
+  <ion-button routerLink="/tabs/tab3" routerDirection="root" fill="clear" mode="ios"> 
+    <ion-icon color="danger" name="close">   
+    </ion-icon>
+  </ion-button>
+ 
+</ion-toolbar>
+
+<ion-content scroll-y="false" class="mainContent">
+  
+    <h2 class="ion-text-center">Selecciona una imagen</h2> 
+ 
+    <ion-slides>
+      <ion-slide *ngIf="fileUpload == false">
+      <ion-grid>
+        <ion-row>
+          <ion-col class="colCenter" >
+        <ion-button *ngIf="fileUpload == false" mode="ios" class="ionbuttonAdd" >
+          <input class="buttonAdd" type="file" (change)="uploadImage($event.target.files)" />
+        </ion-button>
+
+        <div class="colCenter" *ngIf="trackSnapshot | async as snap">
+          File size: {{ snap.totalBytes | formatFileSize }}              
+          Data transfered: {{ snap.bytesTransferred | formatFileSize }}
+        </div> 
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      </ion-slide>
+    
+  
+    <!------------------------------------------------------> 
+    <ion-slide *ngIf="UploadedImageURL | async as resp">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="colCenter" *ngIf="UploadedImageURL | async as resp">
+            <img class="uploadedImage" [src]="resp"/>            
+          </div>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+
+            <div class="colCenter" *ngIf="UploadedImageURL | async as resp">
+              <a [href]="resp" target="_blank" rel="noopener">Borrar</a>
+            </div>
+<!--
+            <div class="progressBar" *ngIf="percentageVal | async as percentage">
+              {{ percentage | number }}%
+              <ion-progress-bar mode="ios" value="{{ percentage / 100 }}"></ion-progress-bar>
+            </div>
+-->       
+       
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-slide>
+
+  <ion-slide *ngIf="UploadedImageURL2 | async as resp2" >
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          
+      
+                <div *ngIf="UploadedImageURL2 | async as resp2">
+                  <img class="uploadedImage2" [src]="resp2"/>            
+                </div>
+      
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+
+            <div class="colCenter" *ngIf="UploadedImageURL2 | async as resp2">
+              <a [href]="resp2" target="_blank" rel="noopener">Borrar</a>
+            </div>
+<!--
+            <div class="progressBar" *ngIf="percentageVal | async as percentage">
+              {{ percentage | number }}%
+              <ion-progress-bar mode="ios" value="{{ percentage / 100 }}"></ion-progress-bar>
+            </div>
+-->       
+       
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-slide>
+
+  <ion-slide *ngIf="UploadedImageURL3 | async as resp3" >
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          
+      
+                <div *ngIf="UploadedImageURL3 | async as resp3">
+                  <img class="uploadedImage3" [src]="resp3"/>            
+                </div>
+      
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+
+            <div class="colCenter" *ngIf="UploadedImageURL3 | async as resp3">
+              <a [href]="resp3" target="_blank" rel="noopener">Borrar</a>
+            </div>
+<!--
+            <div class="progressBar" *ngIf="percentageVal | async as percentage">
+              {{ percentage | number }}%
+              <ion-progress-bar mode="ios" value="{{ percentage / 100 }}"></ion-progress-bar>
+            </div>
+-->       
+       
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </ion-slide>
+
+  </ion-slides>
+
+<div class="colCenter">
+<ion-button *ngIf="fileUploadAux == true || fileUpload2 == true" class="ionbuttonAdd2" >
+  <input class="buttonAdd2" type="file" (change)="uploadImage2($event.target.files)" />
+</ion-button>
+
+<div class="colCenter" *ngIf="trackSnapshot2 | async as snap2">
+  File size: {{ snap2.totalBytes | formatFileSize }}              
+  Data transfered: {{ snap2.bytesTransferred | formatFileSize }}
+</div> 
+
+</div>
+
+<div class="colCenter">
+<ion-button *ngIf="fileUploadAux2 == true || fileUpload3 == true" class="ionbuttonAdd3" >
+  <input class="buttonAdd2" type="file" (change)="uploadImage3($event.target.files)" />
+</ion-button>
+
+<div class="colCenter" *ngIf="trackSnapshot3 | async as snap3">
+  File size: {{ snap3.totalBytes | formatFileSize }}              
+  Data transfered: {{ snap3.bytesTransferred | formatFileSize }}
+</div> 
+</div>
+
+<h2 *ngIf="trackSnapshot3 | async as snap3" class="ion-text-center">Presiona Continuar</h2> 
+
+</ion-content>
+
+<ion-footer class="footerBar">
+<div *ngIf="UploadedImageURL | async as url">
+<ion-button (click)="infoPage()" mode="ios" color="dark" >Continuar</ion-button>
+</div>
+</ion-footer>

@@ -1,0 +1,66 @@
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap" rel="stylesheet">
+
+<ion-header class="ion-no-border">
+	<ion-toolbar>
+    <div class="back-circle"></div>
+		<!--<ion-title class="ion-text-center custom-font">Adoptapp</ion-title>  -->
+    <img src="/assets/img/Logo.png" class="img-centro" width="50" height="50">
+	</ion-toolbar>
+</ion-header>
+
+<ion-content padding class="Fondo" fullscreen="true">
+
+<div class="ion-padding">
+
+  <form class="ion-padding">
+
+    <div class="wrap-input">
+    <input class="input" type="email" [(ngModel)]="email" name="user-name" placeholder="Correo Electronico" pattern=".+@globex.com">
+    </div>
+
+
+    <div class="wrap-input">
+    <input class="input" type="password" [(ngModel)]="password" name="password" placeholder="Contraseña">
+    </div> 
+
+    <div class="container-form-btn">
+      <button (click)="OnSubmitLogin()"  class="form-btn custom-font">
+      Ingresar
+      </button>
+    </div>  
+
+    <div class="social-btns">
+      <ion-button class = "facebook">
+        <ion-icon name = "logo-facebook"> </ion-icon>
+      </ion-button>
+      <ion-button class = "google" >
+        <ion-icon name = "logo-google"> </ion-icon>
+      </ion-button>
+    </div>
+
+
+  </form>
+  <!--<ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-button class = "facebook" >
+          <ion-icon name = "logo-facebook"> </ion-icon>
+        </ion-button>
+        <ion-button class = "google" >
+          <ion-icon name = "logo-google"> </ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>-->
+</div>
+
+
+
+</ion-content>
+
+<ion-footer class="ion-no-border">
+	<ion-toolbar>
+		<p class="ion-text-center custom-font">¿Aun no tienes cuenta? <a routerLink="/create" routerDirection="root"> Crea una aqui </a></p>
+	</ion-toolbar>
+</ion-footer>
